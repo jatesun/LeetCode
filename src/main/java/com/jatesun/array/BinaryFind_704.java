@@ -18,7 +18,6 @@ package com.jatesun.array;
  */
 public class BinaryFind_704 {
     public static void main(String[] args) {
-
     }
 
     /**
