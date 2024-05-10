@@ -1,5 +1,7 @@
 package com.jatesun.hash;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -30,10 +32,41 @@ import java.util.List;
 public class ThreeSum_15 {
 
     /**
-     * 我们很容易想到的算法是三层for循环。时间复杂度为O3。
-     *
+     * 我们很容易想到的算法是三层for循环。时间复杂度为O3。但是就会超时，采用双指针算法。
+     * 最后的时间复杂度为O2。
      */
-    public List<List<Integer>> threeSum(int[] nums) {
-        return null;
+    class Solution {
+        public List<List<Integer>> threeSum(int[] nums) {
+            List<List<Integer>> result = new ArrayList<>();
+            Arrays.sort(nums);
+            for (int i = 0; i < nums.length; i++) {
+                // 排序之后如果第一个元素已经大于零，直接返回
+                if (nums[i] > 0) {
+                    return result;
+                }
+
+                if (i > 0 && nums[i] == nums[i - 1]) {  // 去重
+                    continue;
+                }
+
+                int left = i + 1;
+                int right = nums.length - 1;
+                while (right > left) {
+                    int sum = nums[i] + nums[left] + nums[right];
+                    if (sum > 0) {
+                        right--;
+                    } else if (sum < 0) {
+                        left++;
+                    } else {
+                        result.add(Arrays.asList(nums[i], nums[left], nums[right]));
+                        while (right > left && nums[right] == nums[right - 1]) right--;
+                        while (right > left && nums[left] == nums[left + 1]) left++;
+                        right--;
+                        left++;
+                    }
+                }
+            }
+            return result;
+        }
     }
 }
