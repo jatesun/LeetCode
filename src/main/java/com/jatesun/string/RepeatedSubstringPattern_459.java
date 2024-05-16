@@ -21,8 +21,7 @@ public class RepeatedSubstringPattern_459 {
     public static void main(String[] args) {
         RepeatedSubstringPattern_459 repeatedSubstringPattern_459 = new RepeatedSubstringPattern_459();
     }
-
-
+    
     public boolean repeatedSubstringPattern(String s) {
         for (int i = 0; i < s.length() / 2; i++) {
             String tmp = s.substring(0, i + 1);
