@@ -38,7 +38,6 @@ public class RemoveDuplicates_1047 {
             }
             stack.add(c);
         }
-        String stStr = stack.stream().map(s1 -> s1.toString()).collect(Collectors.joining(""));
-        return stack.isEmpty() ? "" : stStr;
+        return stack.isEmpty() ? "" : stack.stream().map(s1 -> s1.toString()).collect(Collectors.joining(""));
     }
 }
