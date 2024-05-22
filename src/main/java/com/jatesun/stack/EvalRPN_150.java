@@ -1,9 +1,6 @@
 package com.jatesun.stack;
 
-import java.util.ArrayDeque;
-import java.util.Queue;
 import java.util.Stack;
-import java.util.concurrent.ArrayBlockingQueue;
 
 /**
  * 给你一个字符串数组 tokens ，表示一个根据 逆波兰表示法 表示的算术表达式。
