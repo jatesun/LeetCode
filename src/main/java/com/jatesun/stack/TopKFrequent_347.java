@@ -20,9 +20,8 @@ import java.util.PriorityQueue;
  */
 public class TopKFrequent_347 {
     /**
-     *
+     * 解法1：基于大顶堆实现,基于库函数实现，可以自己实现大顶堆
      */
-    //解法1：基于大顶堆实现,基于库函数实现，可以自己实现大顶堆
     public int[] topKFrequent(int[] nums, int k) {
         Map<Integer, Integer> map = new HashMap<>(); //key为数组元素值,val为对应出现次数
         for (int num : nums) {
