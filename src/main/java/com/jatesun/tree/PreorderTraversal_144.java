@@ -2,6 +2,7 @@ package com.jatesun.tree;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * 给你二叉树的根节点 root ，返回它节点值的 前序 遍历。
@@ -37,6 +38,26 @@ public class PreorderTraversal_144 {
         result.add(cur.val);
         innerOrder(cur.left, result);
         innerOrder(cur.right, result);
+    }
+
+    public List<Integer> preorderTraversal1(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        if (root == null){
+            return result;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()){
+            TreeNode node = stack.pop();
+            result.add(node.val);
+            if (node.right != null){
+                stack.push(node.right);
+            }
+            if (node.left != null){
+                stack.push(node.left);
+            }
+        }
+        return result;
     }
 
 }
