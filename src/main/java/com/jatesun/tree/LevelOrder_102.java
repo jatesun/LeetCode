@@ -29,7 +29,8 @@ public class LevelOrder_102 {
         node2.left = node3;
         node2.right = node4;
         LevelOrder_102 levelOrder_102 = new LevelOrder_102();
-        levelOrder_102.levelOrder(root);
+        List<List<Integer>> result = levelOrder_102.levelOrder1(root);
+        System.out.println(result);
     }
 
     /**
