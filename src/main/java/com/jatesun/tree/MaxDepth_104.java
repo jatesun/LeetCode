@@ -59,4 +59,12 @@ public class MaxDepth_104 {
         }
         return maxDepth;
     }
+
+    public int maxDepth1(TreeNode root) {
+        if (root == null)
+            return 0;
+        int leftDepth = maxDepth1(root.left);
+        int rightDepth = maxDepth1(root.right);
+        return Math.max(leftDepth, rightDepth) + 1;
+    }
 }
