@@ -38,6 +38,7 @@ public class MaxDepth_104 {
 
     /**
      * 可以层序遍历，每层+1；
+     * 此方法为迭代法。
      */
     public int maxDepth(TreeNode root) {
         Queue<TreeNode> queues = new ArrayDeque<>();
@@ -60,6 +61,9 @@ public class MaxDepth_104 {
         return maxDepth;
     }
 
+    /**
+     * 递归方法
+     */
     public int maxDepth1(TreeNode root) {
         if (root == null)
             return 0;
