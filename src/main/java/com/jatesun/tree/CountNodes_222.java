@@ -63,6 +63,16 @@ public class CountNodes_222 {
         }
         return totalCount;
     }
+
+    /**
+     * 递归方法
+     * 递归的代码很简单，但是往往比较难以想到。针对每个节点都是判断当前节点是否为空，如果空return 0.不为空，返回左右子树的个数+当前节点1.
+     */
+    public int countNodes1(TreeNode root) {
+        if (root == null)
+            return 0;
+        return countNodes(root.left) + countNodes(root.right) + 1;
+    }
 }
 
 
