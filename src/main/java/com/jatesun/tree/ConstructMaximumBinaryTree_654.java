@@ -1,5 +1,8 @@
 package com.jatesun.tree;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 /**
  * 给定一个不重复的整数数组 nums 。 最大二叉树 可以用下面的算法从 nums 递归地构建:
  * <p>
@@ -30,7 +33,41 @@ package com.jatesun.tree;
  * nums 中的所有整数 互不相同
  */
 public class ConstructMaximumBinaryTree_654 {
-    public TreeNode constructMaximumBinaryTree(int[] nums) {
-        return null;
+    public static void main(String[] args) {
+        ConstructMaximumBinaryTree_654 constructMaximumBinaryTree_654 = new ConstructMaximumBinaryTree_654();
+        int[] nums = {3, 2, 1, 6, 0, 5};
+        TreeNode root = constructMaximumBinaryTree_654.constructMaximumBinaryTree(nums);
+        LevelOrder_102 levelOrder_102 = new LevelOrder_102();
+        System.out.println(levelOrder_102.levelOrder1(root));
+
     }
+
+    /**
+     * 递归的方法，寻找root，处理root，递归处理左右子树
+     */
+    public TreeNode constructMaximumBinaryTree(int[] nums) {
+        if (nums.length == 0)
+            return null;
+        int curIndex = findMax(nums);
+        int[] leftSide = Arrays.copyOfRange(nums, 0, curIndex);//左闭右开
+        int[] rightSide = Arrays.copyOfRange(nums, curIndex + 1, nums.length);//左闭右开，去除curindex
+        TreeNode root = new TreeNode(nums[curIndex]);
+        root.left = constructMaximumBinaryTree(leftSide);
+        root.right = constructMaximumBinaryTree(rightSide);
+        return root;
+    }
+
+
+    private int findMax(int[] array) {
+        int max = array[0];
+        int index = 0;
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] > max) {
+                max = array[i];
+                index = i;
+            }
+        }
+        return index;
+    }
+
 }
