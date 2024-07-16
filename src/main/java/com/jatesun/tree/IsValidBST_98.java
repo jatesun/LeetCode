@@ -1,5 +1,7 @@
 package com.jatesun.tree;
 
+import java.util.Stack;
+
 /**
  * 给你一个二叉树的根节点 root ，判断其是否是一个有效的二叉搜索树。
  * 有效 二叉搜索树定义如下：
@@ -57,5 +59,34 @@ public class IsValidBST_98 {
         // 右
         boolean right = isValidBST(root.right);
         return right;
+    }
+
+    /**
+     * 迭代
+     */
+    public boolean isValidBST1(TreeNode root) {
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode pre = null;
+        if (root != null)
+            stack.add(root);
+        while (!stack.isEmpty()) {
+            TreeNode curr = stack.peek();
+            if (curr != null) {
+                stack.pop();
+                if (curr.right != null)
+                    stack.add(curr.right);
+                stack.add(curr);
+                stack.add(null);
+                if (curr.left != null)
+                    stack.add(curr.left);
+            } else {
+                stack.pop();
+                TreeNode temp = stack.pop();
+                if (pre != null && pre.val >= temp.val)
+                    return false;
+                pre = temp;
+            }
+        }
+        return true;
     }
 }
