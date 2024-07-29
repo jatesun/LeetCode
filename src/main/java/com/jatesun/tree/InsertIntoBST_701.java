@@ -21,7 +21,6 @@ package com.jatesun.tree;
  * 保证 val 在原始BST中不存在。
  */
 public class InsertIntoBST_701 {
-
     public TreeNode insertIntoBST(TreeNode root, int val) {
         if (root == null) // 如果当前节点为空，也就意味着val找到了合适的位置，此时创建节点直接返回。
             return new TreeNode(val);
