@@ -23,7 +23,7 @@ public class SortedArrayToBST_108 {
      */
     public TreeNode sortedArrayToBST(int[] nums) {
         return sortedArrayToBST(nums, 0, nums.length);
-        
+
     }
 
     public TreeNode sortedArrayToBST(int[] nums, int left, int right) {
