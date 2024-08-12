@@ -27,6 +27,12 @@ import java.util.List;
  * 1 <= k <= n
  */
 public class Combine_77 {
+    public static void main(String[] args) {
+        Combine_77 combine_77 = new Combine_77();
+        combine_77.combine(4, 2);
+        System.out.println(combine_77.result);
+    }
+
     List<List<Integer>> result = new ArrayList<>();
     LinkedList<Integer> path = new LinkedList<>();
 
@@ -43,7 +49,8 @@ public class Combine_77 {
         for (int i = startIndex; i <= n; i++) {
             path.add(i);
             backtracking(n, k, i + 1);
-            path.removeLast();
+            path.removeLast();//此处为核心的回溯逻辑，假设已有1，2组合，3进去后发现满足return，如果此处没有处理，path还是1，2，
+            // 就永远没有其他合适的了，只有把2去掉，继续迭代3，才会有1，3.1，4等组合。需要debug去理解。
         }
     }
 }
