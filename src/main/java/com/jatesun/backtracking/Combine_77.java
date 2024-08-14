@@ -53,4 +53,17 @@ public class Combine_77 {
             // 就永远没有其他合适的了，只有把2去掉，继续迭代3，才会有1，3.1，4等组合。需要debug去理解。
         }
     }
+
+    public void backtracking1(int n, int k, int startIndex) {
+        if (path.size() == k) {
+            result.add(new ArrayList<>(path));
+            return;
+        }
+        for (int i = startIndex; i <= n - (k - path.size()) + 1; i++) {
+            path.add(i);
+            backtracking(n, k, i + 1);
+            path.removeLast();//此处为核心的回溯逻辑，假设已有1，2组合，3进去后发现满足return，如果此处没有处理，path还是1，2，
+            // 就永远没有其他合适的了，只有把2去掉，继续迭代3，才会有1，3.1，4等组合。需要debug去理解。
+        }
+    }
 }
