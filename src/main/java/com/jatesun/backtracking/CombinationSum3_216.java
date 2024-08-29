@@ -35,9 +35,9 @@ import java.util.List;
  * 2 <= k <= 9
  * 1 <= n <= 60
  */
-public class CombinationSum3 {
+public class CombinationSum3_216 {
     public static void main(String[] args) {
-        CombinationSum3 sum3 = new CombinationSum3();
+        CombinationSum3_216 sum3 = new CombinationSum3_216();
         System.out.println(sum3.combinationSum3(3, 9));
     }
 
@@ -50,6 +50,10 @@ public class CombinationSum3 {
     }
 
     public void backtracking(int k, int n, int sum, int startIndex) {
+        // 减枝
+        if (sum > n) {
+            return;
+        }
         //当前逻辑，判断目前path中的和是否满足
         if (path.size() == k && sum == n) {//满足条件
             result.add(new ArrayList<>(path));
