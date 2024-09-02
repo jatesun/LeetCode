@@ -50,10 +50,6 @@ public class CombinationSum3_216 {
     }
 
     public void backtracking(int k, int n, int sum, int startIndex) {
-        // 减枝
-        if (sum > n) {
-            return;
-        }
         //当前逻辑，判断目前path中的和是否满足
         if (path.size() == k && sum == n) {//满足条件
             result.add(new ArrayList<>(path));
