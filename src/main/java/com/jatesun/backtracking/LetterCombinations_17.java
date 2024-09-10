@@ -30,9 +30,7 @@ public class LetterCombinations_17 {
         //迭代处理
         backTracking(digits, numString, 0);
         return list;
-
     }
-
     StringBuilder temp = new StringBuilder();
     public void backTracking(String digits, String[] numString, int num) {
         if (num == digits.length()) {
